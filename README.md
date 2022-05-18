@@ -2,9 +2,9 @@
 
 - Golang Hello World Web server
 
-- HTTP Requests and Responses
-
 - Golang Template (Parsing)
+
+- HTTP Requests and Responses
 
 - Inserting Data into HTML Templates
 
