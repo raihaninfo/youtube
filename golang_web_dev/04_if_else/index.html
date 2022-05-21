@@ -16,9 +16,20 @@
     ge Returns the boolean truth of arg1 >= arg2 
     -->
 
-    <h3>Product</h3>
-    <ul>
-      <li></li>
-    </ul>
+    <h3>Member {{.}}</h3>
+
+    <!-- {{if .Member}}
+    <h2>Welcome</h2>
+    {{else}}
+    <h2>Please sing up</h2>
+    {{end}} -->
+
+    {{if eq .Language "Bangla"}}
+    <h2>Bangla</h2>
+    {{else if eq .Language "Hindi"}}
+    <h2>Hindi</h2>
+    {{else}}
+    <h2>Hello</h2>
+    {{end}}
   </body>
 </html>

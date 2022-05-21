@@ -5,10 +5,10 @@ import (
 	"text/template"
 )
 
-type Product struct {
-	Name  string
-	Price int
-	Qt    int
+type Member struct {
+	Name     string
+	Language string
+	Member   bool
 }
 
 func main() {
@@ -21,13 +21,12 @@ func home(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 
-	// name:= "Raihan"
-
-	product := Product{
-		Name:  "Apple",
-		Price: 21,
-		Qt:    5,
+	// num := 55
+	member := Member{
+		Name:     "Raihan",
+		Language: "Bangla",
+		Member:   true,
 	}
 
-	tpl.Execute(w, product)
+	tpl.Execute(w, member)
 }
