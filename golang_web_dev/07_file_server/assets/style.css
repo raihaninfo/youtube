@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+menu {
+  background-color: green;
+}
+ul {
+  padding: 21px;
+}
+ul li {
+  display: inline;
+  padding: 5px;
+}
+ul li a {
+  color: white;
+  text-decoration: none;
+}
