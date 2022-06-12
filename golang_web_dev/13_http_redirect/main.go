@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"net/http"
-)
+import "net/http"
 
 func main() {
 	http.HandleFunc("/", home)
@@ -13,15 +10,11 @@ func main() {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/"{
-		http.NotFoundHandler()
-	}
-	fmt.Fprintf(w, "Home Page")
+	w.Write([]byte("Home page"))
 }
 func about(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "About Page")
+	w.Write([]byte("About page"))
 }
-
 func abc(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/about", http.StatusSeeOther)
 }
