@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page</title>
+  </head>
+  <body>
+    <h2>Country List</h2>
+    <ul>
+      {{range $a, $b:= .}}
+      <li>{{$b}} -{{$a}}</li>
+      {{end}}
+    </ul>
+  </body>
+</html>
