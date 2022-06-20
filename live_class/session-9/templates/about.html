@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page</title>
+  </head>
+  <body>
+    <!-- {{if .Member}}
+        <h2>Welcome to our website</h2>
+    {{else}}
+        <h2>Please Apply for Member</h2>
+    {{end}} -->
+
+    <!-- 
+    eq Returns the boolean truth of arg1 == arg2
+    ne Returns the boolean truth of arg1 != arg2
+    lt Returns the boolean truth of arg1 < agr2
+    le Returns the boolean truth of arg1 <= agr2
+    gt Returns the boolean truth of arg1 > agr2
+    ge Returns the boolean truth of arg1 >= arg2 
+    -->
+
+    {{if eq .Language "Bangla"}}
+    <h2>Hello Bengali</h2>
+    {{else if eq .Language "India"}}
+    <h2>Hello Indian</h2>
+    {{else}}
+    <h2>Hello</h2>
+    {{end}}
+
+  
+  </body>
+</html>
