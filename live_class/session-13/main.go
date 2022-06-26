@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"text/template"
 )
 
@@ -24,10 +26,8 @@ func home(w http.ResponseWriter, r *http.Request) {
 
 func form(w http.ResponseWriter, r *http.Request) {
 
-	var bsString string
 	if r.Method == http.MethodPost {
-		file, _, err := r.FormFile("file")
-		// fmt.Println(h)
+		file, h, err := r.FormFile("file")
 		if err != nil {
 			panic(err)
 		}
@@ -37,14 +37,34 @@ func form(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			panic(err)
 		}
+		contentType := h.Header["Content-Type"][0]
 
-		bsString = string(bs)
+		fmt.Println(contentType)
+
+		var tempFile *os.File
+
+		if contentType == "image/png" {
+			tempFile, err = ioutil.TempFile("upload/png/", "image*.png")
+			if err != nil {
+				panic(err)
+			}
+		} else if contentType == "image/jpeg" {
+			tempFile, err = ioutil.TempFile("upload/jpg/", "image*.jpg")
+			if err != nil {
+				panic(err)
+			}
+		} else {
+			fmt.Println("File Extension not allowed")
+		}
+
+		tempFile.Write(bs)
+
 	}
 
 	temp, err := template.ParseFiles("filevalue.html")
 	if err != nil {
 		panic(err)
 	}
-	temp.Execute(w, bsString)
+	temp.Execute(w, nil)
 
 }
