@@ -8,7 +8,7 @@ This is a simple REST API with [mux](https://github.com/gorilla/mux).
 | --- | ------ | -------------- | ----------------- |
 | 1   | GET    | /api/user      | get all users     |
 | 2   | GET    | /api/user/{id} | get user by id    |
-| 3   | POST   | /user          | create new user   |
+| 3   | POST   | /api/user      | create new user   |
 | 4   | PUT    | /api/user/{id} | update user by id |
 | 5   | DELETE | /api/user/{id} | delete user by id |
 
